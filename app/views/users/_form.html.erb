@@ -11,6 +11,14 @@
       <%= f.input :fullname %>
     </div>
 
+    <div class="form-inputs">
+      <%= f.input :password, :required => true, type: 'password' %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :password_confirmation, :required => true, type: 'password' %>
+    </div>
+
     <div class="form-actions">
       <%= f.button :submit, class: 'btn btn-success btn-block' %>
     </div>

@@ -9,4 +9,22 @@ class User < ApplicationRecord
   has_many :followings, through: :follows, source: :followed_user
   has_many :received_follows, foreign_key: :followed_id, class_name: 'Follow'
   has_many :followers, through: :received_follows, source: :follower
+  has_secure_password
+  validates :password, length: { minimum: 6 }, presence: true
+
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
 end

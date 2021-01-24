@@ -6,6 +6,10 @@
       <%= label_tag :Username, nil, class: 'text-left' %>
       <%= text_field_tag :username, nil, class: 'form-control' %>
     </div>
+    <div class="field">
+      <%= label_tag :Password, nil, class: 'text-left' %>
+      <%= password_field_tag :password, nil, class: 'form-control' %>
+    </div>
     <div class="actions">
       <%= submit_tag 'Login', class: 'btn btn-success btn-block' %>
     </div>
