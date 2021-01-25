@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.like_cliked').click(function(){
     var tweet_id = $(this).data('tweet');
     $.ajax({
