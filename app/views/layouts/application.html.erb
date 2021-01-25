@@ -14,23 +14,16 @@
   <body>
     <div class="container-fluid">
 
-      <nav class="navv d-flex justify-content-between p-2 float-right bg-primary col-9 fixed-top">
+      <nav class="navv justify-content-between p-2 float-right bg-primary col-12 fixed-top">
         <%= home_btn %>
+        <%= users_btn %>
+        <%= profile_btn %>
         <div class="mx-4 float-right d-flex justify-content-around text-white">
           <%= nav_btns %>
         </div>
       </nav>
-      
-      <div class="sidenav col-3 d-flex flex-column sticky-sidebar">
-        <%= profile_box %>
-        <%= link_to 'Home', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
-        <% if current_user %>
-          <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-secondary text-white btn-block'%>
-        <% end %>
-        <%= link_to 'Users', users_path, class: 'btn btn-outline-secondary text-white btn-block'%>
-      </div>
 
-      <div class="col-9 float-right d-flex flex-column mt-3">
+      <div class="col-12 float-right d-flex flex-column mt-3">
         <div class="w-100">
           <%= flash_notice %>
           <%= flash_alert %>
@@ -41,4 +34,5 @@
       </div>
     </div>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
