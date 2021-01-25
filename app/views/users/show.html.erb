@@ -14,7 +14,7 @@
     </div>      
 
       <% @tweets.each do |tweet| %>
-        <div class="box my-3">
+        <div class="box my-3" id="tweet-<%= tweet.id %>">
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">

@@ -17,9 +17,6 @@ Rails.application.routes.draw do
 
   post 'retweet/:id', to: 'tweets#retweet', as: 'retweet'
 
-  get 'likes/create'
-  get 'likes/destroy'
-
   get '/follow/:id', to: 'follows#follow'
   delete '/follow/:id', to: 'follows#unfollow'
 end

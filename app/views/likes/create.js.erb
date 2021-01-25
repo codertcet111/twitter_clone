@@ -1,0 +1,19 @@
+<% if @error %>
+  swal("Something went wrong!, try after sometime");
+<% else %>
+  $("#tweet-<%= @tweet.id %>").find('.like_cliked').replaceWith('<a class="dislike_cliked" data-tweet="<%= @tweet.id %>" data-like="<%= @like.id %>" href="javascript:void(0);"><i class="far fa-thumbs-down"></i></a>');
+<% end %>
+$('.dislike_cliked').click(function(){
+  var tweet_id = $(this).data('tweet');
+  var like_id = $(this).data('like');
+  $.ajax({
+    type: 'DELETE',
+    url: '/tweets/'+tweet_id+'/likes/'+like_id,
+    data: { 'tweet_id': tweet_id},
+    dataType: "script",
+    success: function () {
+    },
+    error: function () {
+    }
+  });
+});
