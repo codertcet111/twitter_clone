@@ -1,6 +1,7 @@
 <% if @error %>
   swal("Something went wrong!, try after sometime");
 <% else %>
+  $("#tweet-<%= @tweet.id %>").find('.likes-count').html("Likes: <%= @tweet.likes.count %>");
   $("#tweet-<%= @tweet.id %>").find('.like_cliked').replaceWith('<a class="dislike_cliked" data-tweet="<%= @tweet.id %>" data-like="<%= @like.id %>" href="javascript:void(0);"><i class="far fa-thumbs-down"></i></a>');
 <% end %>
 $('.dislike_cliked').click(function(){
