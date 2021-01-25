@@ -50,7 +50,7 @@ module TweetsHelper
 
   def edit_tweet_btn_feed(tweet)
     if tweet.user == current_user
-      link_to edit_tweet_path(tweet), class: 'level-item' do
+      link_to edit_tweet_path(tweet), class: 'mr-4' do
         raw("<span class='icon'><i class='fas fa-pencil-alt'></i></span>")
       end
     end
@@ -58,7 +58,7 @@ module TweetsHelper
 
   def delete_tweet_btn_feed(tweet)
     if tweet.user == current_user
-      link_to tweet, method: :delete, data: { confirm: 'Are you sure you want to delete this tweeet?' } do
+      link_to tweet, method: :delete, data: { confirm: 'Are you sure you want to delete this tweeet?' }, class: 'mr-1' do
         raw("<span class='icon'><i class='far fa-trash-alt'></i></span>")
       end
     end
@@ -66,7 +66,7 @@ module TweetsHelper
 
   def retweet_btn_feed(tweet)
     if current_user && tweet.user != current_user
-      link_to retweet_path(tweet), method: :post, class: 'level-item' do
+      link_to retweet_path(tweet), method: :post do
         raw("<span class='icon'><i class='fas fa-retweet-alt'></i></span>")
       end
     end

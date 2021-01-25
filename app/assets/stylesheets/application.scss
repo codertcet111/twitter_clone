@@ -63,6 +63,10 @@
   text-align: center;
 }
 
+p.likes-count {
+  display: inline;
+}
+
 @media only screen and (max-width: 600px) {
   .sticky-sidebar{
     margin-top: 15px;
