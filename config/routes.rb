@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
   end
 
+  post 'retweet/:id', to: 'tweets#retweet', as: 'retweet'
+
   get 'likes/create'
   get 'likes/destroy'
 

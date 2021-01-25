@@ -1,7 +1,7 @@
 # rubocop: disable Style/GuardClause
 
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[show edit update destroy]
+  before_action :set_tweet, only: %i[show edit update destroy retweet]
   before_action :user_login, except: %I[index show]
 
   def index
@@ -15,7 +15,9 @@ class TweetsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    
+  end
 
   def new
     @tweet = current_user.tweets.new
@@ -44,6 +46,18 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     redirect_to tweets_url, notice: 'Tweet was successfully destroyed.'
+  end
+
+  def retweet
+    @retweet = Tweet.new(tweet: @tweet.tweet, parent_id: @tweet.id, author_id: current_user.id)
+    if @retweet.save
+      redirect_to root_path, notice: 'Retweet was successfully created.'
+    else
+      render(
+        html: "<script>alert('Some Problem occured!')</script>".html_safe,
+        layout: 'application'
+      )
+    end
   end
 
   private

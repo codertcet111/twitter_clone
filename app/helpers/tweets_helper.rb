@@ -63,6 +63,14 @@ module TweetsHelper
       end
     end
   end
+
+  def retweet_btn_feed(tweet)
+    if current_user && tweet.user != current_user
+      link_to retweet_path(tweet), method: :post, class: 'level-item' do
+        raw("<span class='icon'><i class='fas fa-retweet-alt'></i></span>")
+      end
+    end
+  end
 end
 
 # rubocop: enable Layout/LineLength

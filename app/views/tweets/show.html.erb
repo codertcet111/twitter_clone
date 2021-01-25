@@ -1,9 +1,43 @@
 <p id="notice"><%= notice %></p>
+<div class="my-6 mr-0">
+  <p>
+    <strong>Tweet:</strong>
+    <div class="box">
+      <% if @tweet.parent_id %>
+        <div class="pb-2"><b>You Retweeted</b></div>
+      <% end %>
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <div class="gravatar" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', @tweet.user.username), size: 64) %>) 0px 0px no-repeat; width:64px; height:64px;"></div>
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <strong><%= link_to @tweet.user.fullname.capitalize, user_path(@tweet.user) %> </strong><br>
+            <small>@<%= @tweet.user.username %></small>
+          </div>
+          <p class='h4'><i class="fas fa-quote-left pr-2 fa-sm"></i>
+            <%= @tweet.tweet %>
+            <i class="fas fa-quote-right pl-2 fa-sm"></i>
+          </p>
+          <br>
+          <div class='tweet-comments-section'>
 
-<p>
-  <strong>Tweet:</strong>
-  <%= @tweet.tweet %>
-</p>
+            <p><b>Comments:</b></p>
+          
+            <div class="border rounded p-2">
+              <% if @tweet.comments.count == 0 %>
+                <div class="text-center"><p class="h6">No Comments yet 😔</p></div>
+              <% else %>
+                <%= render partial: 'comments/comment', collection: @tweet.comments %>
+              <% end %>
+            </div><br>
+          </div>
+        </div>
+      </article>
+    </div>
+  <br>
 
-<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
-<%= link_to 'Back', root_path %>
+  <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+</div>
