@@ -3,7 +3,9 @@
     <article class="media d-flex align-items-center">
       <div class="media-left">
         <figure class="image">
-          <div class="gravatar" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', @user.username), size: 64) %>) 0px 0px no-repeat; width:64px; height:64px;"></div>
+          <div class="gravatar" style="width:64px; height:64px;">
+            <img src="<%= asset_path('default_user.png') %>" />
+          </div>
         </figure>
       </div>
       <div class="media-content">
@@ -41,7 +43,9 @@
         <article class="media d-flex align-items-center">
           <div class="media-left">
             <figure class="image is-50x50">
-                <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', user.username), size: 50) %>) 0px 0px no-repeat; width:50px; height:50px;"></div>
+              <div class="gravatar" style="width:50px; height:50px;">
+                <img src="<%= asset_path('default_user.png') %>" />
+              </div>
             </figure>
           </div>
           <div class="media-content">
@@ -63,7 +67,9 @@
         <article class="media d-flex align-items-center">
           <div class="media-left">
             <figure class="image is-50x50">
-                <div class="gravatar image is-64x64" style="background:transparent url(<%= gravatar_image_url('spam@spam.com'.gsub('spam', user.username), size: 50) %>) 0px 0px no-repeat; width:50px; height:50px;"></div>
+              <div class="gravatar" style="width:50px; height:50px;">
+                <img src="<%= asset_path('default_user.png') %>" />
+              </div>
             </figure>
           </div>
           <div class="media-content">
