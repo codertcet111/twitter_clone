@@ -1,59 +1,62 @@
-<div class="my-6 d-flex mr-0">
-  <div class="col-4 sticky-sidebar order-2">
-   <%= render 'user_profile' %>
-  </div>
-  <div class="col-8 panel">
-    <div class="text-center"><p class="h3">My Profile</p></div>
-    <p id="notice"><%= notice %></p>
-    <div class="panel-block d-flex mt-2">
-      <div class="media">
-        <div class="media-left">
-          <h3 class="font-weight-bold">Tweets: <%= @user.tweets.count %> </h3>
+<div class="fluid-container">
+  <div class="my-6 row mx-lg-5">
+    <div class="col-md-4 sticky-sidebar order-2">
+     <%= render 'user_profile' %>
+    </div>
+    <div class="col-md-8 panel">
+      <div class="text-center"><p class="h3">My Profile</p></div>
+      <p id="notice"><%= notice %></p>
+      <div class="panel-block d-flex mt-2">
+        <div class="media">
+          <div class="media-left">
+            <h3 class="font-weight-bold">Tweets: <%= @user.tweets.count %> </h3>
+          </div>
         </div>
       </div>
-    </div>      
-
       <% @tweets.each do |tweet| %>
         <div class="box my-3" id="tweet-<%= tweet.id %>">
-          <article class="media">
-            <div class="media-left">
-              <figure class="image is-64x64">
+          <% if tweet.parent_id %>
+            <div class="pb-2"><b>You Retweeted</b></div>
+          <% end %>
+          <div class="row">
+            <div class="col-md-2 col-sm-3 user-avatar-feed">
+              <figure class="image is-64x64 user-image">
                 <div class="gravatar" style="width:64px; height:64px;">
                   <img src="<%= asset_path('default_user.png') %>" />
                 </div>
               </figure>
             </div>
-            <div class="media-content">
+            <div class="col-md-10 col-sm-9">
               <div class="content">
-                <strong><%= link_to tweet.user.fullname, user_path(tweet.user) %> </strong><br>
-                <small>@<%= tweet.user.username%></small>
-              </div>
-              <p class='h4'><i class="fas fa-quote-left pr-2 fa-sm"></i>
-                <%= tweet.tweet %>
-                <i class="fas fa-quote-right pl-2 fa-sm"></i>
-              </p>
-              <br>
-              <nav class="level">
-                <div class="level-left is-mobile">
-                  <%= edit_tweet_btn(tweet) %>
-                  <%= delete_tweet_btn(tweet) %>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= check_main(tweet) %>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <p class="likes-count">Likes: <%= tweet.likes.count %> </p>
-                </div>
-              </nav>
-              <div class='tweet-comments-section'>
-
-                <%= comments(tweet) %>
-
-                <%= comments_form(tweet) %>
+                <strong><%= link_to tweet.user.fullname.capitalize, user_path(tweet.user) %> </strong><br>
+                <small>@<%= tweet.user.username %></small>
               </div>
             </div>
-          </article>
+          </div>
+          <div class="mt-4">
+            <p class='h4'><i class="fas fa-quote-left pr-2 fa-sm"></i>
+              <%= tweet.tweet %>
+              <i class="fas fa-quote-right pl-2 fa-sm"></i>
+            </p>
+            <br>
+            <nav class="level">
+              <div class="level-left is-mobile">
+                <%= edit_tweet_btn_feed(tweet) %>
+                <%= delete_tweet_btn_feed(tweet) %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <%= check_main(tweet) %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <p class="likes-count">Likes: <%= tweet.likes.count %> </p>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+            </nav>
+            <div class='tweet-comments-section'>
+              <%= comments(tweet) %>
+              <%= comments_form(tweet) %>
+            </div>
+          </div>
         </div>
       <% end %>
-
+    </div>
   </div>
 </div>
-

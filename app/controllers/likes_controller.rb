@@ -13,6 +13,9 @@ class LikesController < ApplicationController
   def destroy
     @tweet = Tweet.find_by_id(params[:tweet_id])
     @like = Like.find_by(id: params[:id], user: current_user, tweet_id: params[:tweet_id])
+    unless @like
+      byebug
+    end
     unless @like.destroy
       @errors = @like.errors.full_messages
     end
