@@ -24,10 +24,10 @@
       <div class="sidenav col-3 d-flex flex-column sticky-sidebar">
         <%= profile_box %>
         <%= link_to 'Home', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
-        <%= link_to '@ Connect', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
-        <%= link_to '# Discover', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
-        <%= link_to 'Profile', current_user, class: 'btn btn-outline-secondary text-white btn-block'%>
-        <%= link_to 'Statistics', root_path, class: 'btn btn-outline-secondary text-white btn-block'%>
+        <% if current_user %>
+          <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-secondary text-white btn-block'%>
+        <% end %>
+        <%= link_to 'Users', users_path, class: 'btn btn-outline-secondary text-white btn-block'%>
       </div>
 
       <div class="col-9 float-right d-flex flex-column mt-3">
