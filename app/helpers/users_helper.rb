@@ -39,7 +39,7 @@ module UsersHelper
     unless @comment.empty?
       raw("<p><b>Comments:</b></p>
 
-      <div class='border rounded p-2'>
+      <div class='border rounded p-2'  id='comments-list'>
         #{render partial: 'comments/comment', collection: tweet.comments}
       </div><br>")
     end

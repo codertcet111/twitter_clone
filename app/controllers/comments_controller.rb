@@ -1,12 +1,16 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
+    @tweet = Tweet.find_by_id(params[:tweet_id])
     @comment = current_user.comments.create(comment_params)
     @comment.tweet_id = params[:tweet_id]
 
-    if @comment.save
-      redirect_to root_path, notice: 'Comment was successfully created.'
-    else
-      redirect_to root_path, alert: @comment.errors.full_messages.join('. ').to_s
+    unless @comment.save
+      @errors = @comment.errors.full_messages
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

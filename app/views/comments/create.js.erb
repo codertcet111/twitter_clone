@@ -1,0 +1,8 @@
+<% if @error %>
+  swal("Something went wrong!, try after sometime");
+<% else %>
+  $("#tweet-<%= @tweet.id %>").find('#no-comment').html("<p class='h6'>Yeah, thanks for response 🥳</p>");
+  $("#tweet-<%= @tweet.id %>").find('#comments-list').append("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");
+  $("#tweet-<%= @tweet.id %>").find('#comment_content')
+  swal("Comment added successfully!");
+<% end %>

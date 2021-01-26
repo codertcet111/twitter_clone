@@ -11,7 +11,7 @@ module TweetsHelper
   end
 
   def com_form(tweet)
-    form_for(tweet.comments.new, url: tweet_comments_path(tweet)) do |form|
+    form_for(tweet.comments.new, url: tweet_comments_path(tweet), remote: true) do |form|
       form.text_field(:content, id: :comment_content, class: 'form-control mb-2', placeholder: 'Add new Comment') + form.submit('Add Comment', class: 'btn btn-primary')
     end
   end

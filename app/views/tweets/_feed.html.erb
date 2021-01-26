@@ -48,9 +48,9 @@
 
           <p><b>Comments:</b></p>
         
-          <div class="border rounded p-2">
+          <div class="border rounded p-2" id="comments-list">
             <% if tweet.comments.count == 0 %>
-              <div class="text-center"><p class="h6">No Comments yet 😔</p></div>
+              <div class="text-center" id="no-comment"><p class="h6">No Comments yet 😔</p></div>
             <% else %>
               <%= render partial: 'comments/comment', collection: tweet.comments %>
             <% end %>
