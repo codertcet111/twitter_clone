@@ -44,7 +44,7 @@ module TweetsHelper
     if current_user
       render 'users_not_followed'
     else
-      render 'users_list'
+      render 'users_list', :title => 'Who to follow'
     end
   end
 
