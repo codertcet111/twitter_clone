@@ -18,9 +18,11 @@ Below features are available, you may clone the repo and add features...
 <code>
 Ruby version: 2.7.2
 </code>
+<br>
 <code>
 Rails version: 5.2.0
 </code>
+<br>
 <code>
 Database: Postgresql
 </code>
