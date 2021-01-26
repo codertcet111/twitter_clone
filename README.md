@@ -1,24 +1,39 @@
-# README
+This is Basic clone of Twitter.com in Ruby on Rails,
+Below features are available, you may clone the repo and add features...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<b>List of features:</b>
+<ul>
+<li>Sign In / Sign Up</li>
+<li>Home Feed</li>
+<li>User Profile</li>
+<li>User List</li>
+<li>User can tweet</li>
+<li>Can like comment</li>
+<li>Can reply (comment) to those tweet</li>
+<li>Can retweet others comment</li>
+<li>Can follow/ Unfollow other users</li>
+<li>Responsive UI</li>
+</ul>
+<br>
+<code>
+Ruby version: 2.7.2
+</code>
+<code>
+Rails version: 5.2.0
+</code>
+<code>
+Database: Postgresql
+</code>
+<br>
+After repo clone run below cmd's:
+<code>
+bundle install
+</code>
+<code>
+rake db:create
+</code>
+<code>
+rake db:migrate
+<code>
+rails s
+</code>
