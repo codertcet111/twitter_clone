@@ -32,7 +32,7 @@ module ApplicationHelper
 
   def like_or_dislike(tweet)
     like = Like.find_by(tweet: tweet, user: current_user)
-    if like
+    if like && like.is_active
       link_to('<i class="far fa-thumbs-down"></i>'.html_safe, "javascript:void(0);", class: 'dislike_cliked', :"data-tweet" => "#{tweet.id}", :"data-like" => "#{like.id}")
     else
       link_to('<i class="fas fa-thumbs-up"></i>'.html_safe, "javascript:void(0);", class: 'like_cliked', :"data-tweet" => "#{tweet.id}")
