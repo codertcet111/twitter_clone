@@ -28,14 +28,19 @@ Database: Postgresql
 </code>
 <br>
 After repo clone run below cmd's:
+<br>
 <code>
 bundle install
 </code>
+<br>
 <code>
 rake db:create
 </code>
+<br>
 <code>
 rake db:migrate
 <code>
 rails s
 </code>
+<br>
+Enjoy the coding!!!...
