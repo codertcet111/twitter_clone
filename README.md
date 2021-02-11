@@ -1,4 +1,8 @@
-This is Basic clone of Twitter.com in Ruby on Rails,
+This is Basic clone of Twitter.com in Ruby on Rails,<br>
+Hosted URL: <a href="https://vast-escarpment-72735.herokuapp.com/">Shubham Mishra Twitter Clone</a><br>
+Login Credentials:<br>
+Username: umesh123<br>
+password: 123456<br>
 Below features are available, you may clone the repo and add features...
 
 <b>List of features:</b>
